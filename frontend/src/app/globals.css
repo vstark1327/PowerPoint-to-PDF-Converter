@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rpv-core__page-layer--single {
+  overflow: hidden !important;
+  border: solid 1px #EAECF0;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08) !important;
+  margin: 0 !important;
+}
+
+.rpv-core__page-layer::after {
+  box-shadow: none !important;
+}
+
+.rpv-core__inner-page {
+  background-color: #FAF9FB !important;
+}
+
+@layer utilities {
+  .spinner {
+    animation: rotate 2s linear infinite;
+  }
+  .spinner .path {
+    stroke: #2563eb; /* Tailwind blue-600 */
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+}
